@@ -4,17 +4,16 @@
 #This problem displays the winner Heads or Tails
 #Flip Coin Combination
 
-#((RANDOM)) to find Heads orTails
+#((RANDOM)) to find Heads or Tails
 
 read -p "say Heads or Tails (Simply Enter 1.For Heads 2.For Tails) : " userInputValue;
-echo "Welcome to flip coin combination problem."
 
 
 #Variables
 Head=1;
 Tail=2;
-countHeads=0;
-countTails=0;
+countHeads=H;
+countTails=T;
 
 #Multiple times of flipping a coin store the Singlet Combination in a Dictionary. 
 #Finally determine the	percentage of the Singlet Combination.
@@ -32,9 +31,9 @@ do
 	case $flipCoin in
 
 		$Head)
-			singletDictionary[((countHeads))]=$(($countHeads + $i));;
+			singletDictionary[((countHeads))]=$((countHeads++));;
 		$Tail)
-			singletDictionary[((countTails))]=$(($countTails + $i));;
+			singletDictionary[((countTails))]=$((countTails++));;
 		    *)
 			echo  " " ;;
 	esac
