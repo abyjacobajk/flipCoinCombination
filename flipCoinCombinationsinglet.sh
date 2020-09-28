@@ -9,7 +9,7 @@
 read -p "say Heads or Tails (Simply Enter 1.For Heads 2.For Tails) : " userInputValue;
 echo "Welcome to flip coin combination problem."
 
-randomValue=$((RANDOM%2+1));
+
 #Variables
 Head=1;
 Tail=2;
@@ -32,9 +32,9 @@ do
 	case $flipCoin in
 
 		$Head)
-			singletDictionary["Heads"]=$((++countHeads));;
+			singletDictionary[((countHeads))]=$(($countHeads + $i));;
 		$Tail)
-			singletDictionary["Tails"]=$((++countTails));;
+			singletDictionary[((countTails))]=$(($countTails + $i));;
 		    *)
 			echo  " " ;;
 	esac
@@ -42,18 +42,15 @@ do
 	((noOfTimes--))
 
 done
-
+echo ${singletDictionary[@]}
 #read dictinaery elements.
-for pos in ${!singletDictionary[@]}
+for pos in ${singletDictionary[@]}
 do
-	echo "$pos is: ${singletDictionary[$pos]},"
+	echo "$pos is: ${singletDictionary[@]},"
 done
+element=11;
 
-#if random value and user input value match you won else you lost 
-
-if [ $randomValue == $userInputValue ] 
-then
-	echo "Congratulations ! You Won the Toss";
-else
-	echo "Sorry,You Lost The Toss !";
-fi;
+for pos in ${singletDictionary[@]}
+do
+        perc=$[(($singletDicionary[countheads] *100)) /$element]
+done
